@@ -1,0 +1,22 @@
+.load-combinators button{
+    background-color: rgb(251, 253, 255);
+    margin-top: 5px;
+    width: 200px;
+    padding: 2px;
+    border: 1px solid rgb(219, 217, 217);
+    border-radius: 5px;
+
+}
+.load_page{
+    height: 121vh;
+}
+.load-combinators-inner{
+    padding: 20px 0px 0px 0px;
+}
+
+.mrb10{
+    margin-bottom: 4px;
+}
+/* .soll{
+    margin-bottom: 10px;
+} */

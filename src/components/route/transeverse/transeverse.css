@@ -1,0 +1,52 @@
+.type-container{
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 42px;
+    margin: 15px 26px;
+}
+.type-select-container{
+    display: flex;
+}
+.type-label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    width: 7px;
+    height: 28px;
+}
+.transevere-d{
+    margin: 7px 26px;
+    /* background-color: red; */
+    padding: 12px;
+    box-shadow: 0px 0px 2px 0px rgb(116, 115, 115);
+}
+
+.supports-select1{
+    width: 100px;
+    padding: 3px;
+}
+.support-frame{
+    margin: 18px 25px;
+}
+.transevers-field{
+    padding: 6px;
+    border: 1px solid rgb(175, 173, 173);
+}
+.support-frame_inpbox{
+    margin: 10px;
+}
+.support-frame_inpbox_el{
+    margin: 0px 0px 5px 10px;
+}
+.label-div{
+    height: 20px;
+}
+.length-unit-tarnseverse{
+    margin: 0px 27px 0px 27px;
+    padding:10px 0px 17px 0px;
+}
+
+.rmr10{
+    margin: 0px 12px 0px 0px;
+}

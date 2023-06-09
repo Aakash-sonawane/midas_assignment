@@ -3,7 +3,7 @@ import React from 'react'
 export default function FieldSet({legend,children}) {
   return (
     <>
-    <fieldset>
+    <fieldset className='transevers-field'>
         <legend>{legend}</legend>
         {children}
     </fieldset>
