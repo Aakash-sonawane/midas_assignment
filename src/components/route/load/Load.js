@@ -1,10 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Main from '../../Main'
 import InputBox from '../../inputBox'
 import './load.css'
+import Body from '../../body'
+import Footer from '../../footer'
 
-export default function Load() {
+import handleFileChange from '../../../utility/handleFileChange'
+import handleSubmit from '../../../utility/handleSubmit'
+
+export default function Load({setShowPage}) {
+    const[formdata,setFormdata]=useState({});
+
+    const handleChange=(e)=>{
+        console.log(e.target.name)
+        
+        formdata[e.target.name]=e.target.value;
+        console.log(formdata);
+      
+        setFormdata({...formdata})
+        
+      }
     return (
+        <Body setShowPage={setShowPage}>
         <Main load={true}>
 
             <div className='load-combinators-inner'>
@@ -38,10 +55,10 @@ export default function Load() {
                         <input type='checkbox' /> pavement  :
                     </div>
                     <InputBox label={'Weight Density'}>
-                        <input type='text' className='inp-short inp' /> kN/m^3
+                        <input type='text' className='inp-short inp' name='pavment-WD' value={formdata['pavment-WD'] || ''} onChange={handleChange} /> kN/m^3
                     </InputBox>
                     <InputBox label={'ThickNess'}>
-                        <input type='text' className='inp-short inp' /> m
+                        <input type='text' className='inp-short inp' name='pavment-thickness' value={formdata['pavment-thickness'] || ''} onChange={handleChange} /> m
                     </InputBox>
                 </div>
 
@@ -54,33 +71,33 @@ export default function Load() {
 
                             <div>
                                 <InputBox label={'Weight Density'}>
-                                    <input type='text' className='inp-short inp' /> kN/m^3
+                                    <input type='text' className='inp-short inp' name='soll-WD' value={formdata['soll-WD'] || ''} onChange={handleChange} /> kN/m^3
                                 </InputBox>
                             </div>
                             <div>
                                 <InputBox label={'Phi'}>
-                                    <input type='text' className='inp-short inp' /> kN/m^3
+                                    <input type='text' className='inp-short inp' name='soll-phi' value={formdata['soll-phi'] || ''} onChange={handleChange} /> kN/m^3
                                 </InputBox>
                             </div>
                             <div>
                                 <InputBox label={'Surcharge'}>
-                                    <input type='text' className='inp-short inp' /> kN/m^3
+                                    <input type='text' className='inp-short inp' name='soll-sucharge' value={formdata['soll-sucharge'] || ''} onChange={handleChange} /> kN/m^3
                                 </InputBox>
                             </div>
                         </div>
                         <div>
                             <div className='mrb10'>
                                 <InputBox label={'Submerged Weight Density'}>
-                                    <input type='text' className='inp-short inp' /> kN/m^3
+                                    <input type='text' className='inp-short inp' name='soll-subWD' value={formdata['soll-subWD'] || ''} onChange={handleChange} /> kN/m^3
                                 </InputBox>
                             </div>
                         </div>
                         <div>
                             <InputBox label={'Load Slope'}>
                                 <span>(L) 1 :</span>
-                                <input type='text' className='inp-short inp' /> kN/m^3
+                                <input type='text' className='inp-short inp' value={'1.5'} disabled />
                                 <span>(R) 1 :</span>
-                                <input type='text' className='inp-short inp' /> kN/m^3
+                                <input type='text' className='inp-short inp' value={'1.5'} disabled /> 
                             </InputBox>
                         </div>
                     </div>
@@ -91,7 +108,7 @@ export default function Load() {
                         <input type='checkbox' /> Underground Water  :
                     </div>
                     <span>GL -</span>
-                    <input type='text' className='inp-short inp' /> m
+                    <input type='text' className='inp-short inp' name='GL' value={formdata['GL'] || ''} onChange={handleChange} /> m
                 </div>
 
 
@@ -100,10 +117,10 @@ export default function Load() {
                         <input type='checkbox' /> Barrier  :
                     </div>
                     <InputBox label={'self weight'}>
-                        <input type='text' className='inp-short inp' /> kN/m
+                        <input type='text' className='inp-short inp' name='self-weight' value={formdata['self-weight'] || ''} onChange={handleChange}/> kN/m
                     </InputBox>
                     <InputBox label={'Additional Load'}>
-                        <input type='text' className='inp-short inp' /> kN/m
+                        <input type='text' className='inp-short inp' name='add-load' value={formdata['add-load'] || ''} onChange={handleChange}/> kN/m
                     </InputBox>
 
                 </div>
@@ -113,7 +130,7 @@ export default function Load() {
                         <input type='checkbox' /> Median Strip  :
                     </div>
                     <div>
-                        <input type='text' className='inp-short inp' /> kN/m
+                        <input type='text' className='inp-short inp' name='median-strip' value={formdata['median-strip'] || ''} onChange={handleChange} /> kN/m
                     </div>
                 </div>
 
@@ -122,27 +139,29 @@ export default function Load() {
                         <input type='checkbox' /> SideWalk  :
                     </div>
                     <InputBox label={'weight Density'}>
-                        <input type='text' className='inp-short inp' /> kN/m^3
+                        <input type='text' className='inp-short inp' name='sideWalk-wd' value={formdata['sideWalk-wd'] || ''} onChange={handleChange}/> kN/m^3
                     </InputBox>
                     <InputBox label={'Thickness'}>
-                        <input type='text' className='inp-short inp' /> m
+                        <input type='text' className='inp-short inp' name='sideWalk-thickness' value={formdata['sideWalk-thickness'] || ''} onChange={handleChange} /> m
                     </InputBox>
                     <InputBox label={'Crowd Load'}>
-                        <input type='text' className='inp-short inp' /> kN/m^3
+                        <input type='text' className='inp-short inp' name='crowd-load' value={formdata['crowd-load'] || ''} onChange={handleChange} /> kN/m^3
                     </InputBox>
 
                 </div>
             </div>
             <div className='d-flex gap20 transevere-d'>
                 <div>
-                    <input type='checkbox' /> Live Load  :
+                    <input type='checkbox' checked disabled /> Live Load  :
                 </div>
                 <InputBox label={'Class of Loading'}>
-                    <input type='text' className='inp-short inp' /> kN/m^3
+                    <select value={"H15-44"} disabled>
+                        <option></option>
+                    </select>
                 </InputBox>
                 <InputBox label={'Eccentricity'}>
-                    <input type='radio' />
-                    <input type='radio' />
+                    <input type='radio' checked disabled/>
+                    <input type='radio' disabled/>
                 </InputBox>
             </div>
 
@@ -162,7 +181,7 @@ export default function Load() {
                         <input type='checkbox' /> System Temperature  :
                     </div>
                     <InputBox label={'T[+/-]'}>
-                        <input type='text' className='inp-short inp' /> [T]
+                        <input type='text' className='inp-short inp' name='system-temp' value={formdata['system-temp'] || ''} onChange={handleChange}/> [T]
                     </InputBox>
                 </div>
 
@@ -171,7 +190,7 @@ export default function Load() {
                         <input type='checkbox' /> : Temperature Gradient
                     </div>
                     <InputBox label={' Delta T '}>
-                        <input type='text' className='inp-short inp' /> [T]
+                        <input type='text' className='inp-short inp' name='delta-t' value={formdata['delta-t'] || ''} onChange={handleChange} /> [T]
                     </InputBox>
 
                 </div>
@@ -180,18 +199,18 @@ export default function Load() {
             <div className='d-flex gap20 transevere-d disable'>
                 <div className='d-flex'>
                     <div>
-                        <input type='checkbox' disabled /> Shrinkage Strain  :
+                        <input type='checkbox' /> Shrinkage Strain  :
                     </div>
                     <div>
-                        <input type='text' disabled className='inp-short inp' />
+                        <input type='text' disabled className='inp-short inp'  name='shrink-strain' value={formdata['shrink-strain'] || ''} onChange={handleChange}/>
                     </div>
                 </div>
                 <div className='d-flex'>
                     <div>
-                        <input type='checkbox' disabled /> Thermal Coefficent  :
+                        Thermal Coefficent  :
                     </div>
                     <div>
-                        <input type='text' disabled className='inp-short inp' /> 1/[T]
+                        <input type='text' disabled className='inp-short inp' name='COEP' value={formdata['COEP'] || ''} onChange={handleChange}/> 1/[T]
                     </div>
                 </div>
 
@@ -217,5 +236,8 @@ export default function Load() {
             </div>
             </div>
         </Main>
+        <Footer handleFileChange={handleFileChange} handleSubmit={handleSubmit} formData={formdata} setFormData={setFormdata}/>
+        
+        </Body>
     )
 }

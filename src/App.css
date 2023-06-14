@@ -197,6 +197,12 @@
   gap: 6px;
   margin-bottom: 12px;
  }
+ .d-grid4{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 12px;
+ }
  .mr2{
   margin-left: 5px;
   padding: 3px;
