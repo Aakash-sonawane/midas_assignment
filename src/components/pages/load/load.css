@@ -8,7 +8,7 @@
 
 }
 .load_page{
-    height: 121vh;
+    height: 100%;
 }
 .load-combinators-inner{
     padding: 20px 0px 0px 0px;
@@ -16,6 +16,9 @@
 
 .mrb10{
     margin-bottom: 4px;
+}
+.soll-container{
+    margin-right: 2px;
 }
 /* .soll{
     margin-bottom: 10px;

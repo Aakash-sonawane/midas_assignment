@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,22 +35,22 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 .container{
-  /* width: 100px; */
+  width: 100%;
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  height: 115.3vh;
+  height: 100%;
 
-  background-color: rgb(153, 161, 248);
+  /* background-color: rgb(153, 161, 248); */
 }
 .page{
   background-color: rgb(238, 238, 238);;
-  /* height: 100vh; */
+  height: 100%;
   width: 100%;
-  margin: 22px 27%;
+  margin: 22px 26%;
 }
 .page_header{
   width: 100%;
@@ -123,11 +123,15 @@
  .extra-dot{
   width: 20px;
  }
+ .bridetypeContainer{
+  gap: 270px;
+  padding-bottom: 10px;
+ }
  .label{
   box-shadow: -1px -1px 1px 1px rgb(156, 152, 152);
   /* padding: 3px; */
   font-size: 13px;
-  padding: 2px 18px;
+  padding: 2px 8px;
   margin-right: 3px;
   /* width: 50px; */
  }
@@ -141,7 +145,7 @@
 .inputBox .inp{
   border: none;
   box-shadow: 0px 1px 2px 0px rgb(90, 89, 89);
-  padding: 3px;
+  padding: 3px 0px;
 }
 
 .inputBox .hidden{
@@ -150,6 +154,10 @@
 }
 .length-unit{
   margin-bottom: 35px;
+}
+.length-uni-bor{
+  border: 2px solid blue;
+  height: 24px;
 }
 
 .footer-container{
@@ -189,7 +197,7 @@
   padding: 2px 4px;
  }
  .width2{
-  width: 70px;
+  width: 50px;
  }
  .d-grid5{
   display: grid;
@@ -207,8 +215,15 @@
   margin-left: 5px;
   padding: 3px;
  }
+ .mr30{
+  margin-left: 30px;
+ }
 .normal{
   height: 28px;
+}
+.gap10{
+  gap:10px;
+  /* flex-wrap: wrap; */
 }
 .gap20{
   gap:20px;
@@ -228,24 +243,6 @@
   gap: 10px;
 }
 
- /* file import */
- /* #file-upload {
-  opacity: 0;
-  position: absolute;
-  z-index: -1;
-} */
- /* .custom-file-upload {
-  cursor: pointer;
-  padding: 10px;
-  background-color: #e0e0e0;
-  color: #333;
-  border-radius: 4px;
-}
-
-.custom-file-upload:hover {
-  background-color: #ccc;
-} */
-
 input[disabled]{
   font-size: 12px;
   font-weight: 600;
@@ -257,3 +254,46 @@ input{
   font-weight: 600;
   color: rgb(88, 87, 87);
 }
+
+
+@media only screen and (max-width: 1400px) {
+  .page{
+    margin: 22px 22%;
+  }
+}
+@media only screen and (max-width: 1130px) {
+  .page{
+    margin: 22px 15%;
+  }
+}
+
+@media only screen and (max-width: 910px) {
+  .page{
+    margin: 22px 3%;
+  }
+  .d-grid5{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .d-grid4{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .inp-short {
+    width: 50px;
+}
+.inp-long {
+  width: 87px;
+}
+.input-box{
+  grid-template-columns: 200px 200px;
+  
+ }
+ .d-grid5{
+  grid-template-columns: 1fr 1fr 1fr ;
+}
+}
+
+
+

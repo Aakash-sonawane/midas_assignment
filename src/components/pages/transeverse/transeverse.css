@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    width: 7px;
+    width: 22px;
     height: 28px;
 }
 .transevere-d{
@@ -50,3 +50,10 @@
 .rmr10{
     margin: 0px 12px 0px 0px;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .type-container{
+      gap: 8px;
+    }
+  }

@@ -6,7 +6,7 @@ const handleSubmit = (formData) => {
   
     const link = document.createElement("a");
     link.href = url;
-    link.download = "form-data.json";
+    link.download = `${formData.file}-data.json`;
     link.click();
   };
 

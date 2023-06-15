@@ -1,15 +1,12 @@
 import React, { useState } from 'react'
-import Main from '../../Main'
+import Main from '../../parts/Main'
 import InputBox from '../../inputBox'
 import './load.css'
-import Body from '../../body'
-import Footer from '../../footer'
-
-import handleFileChange from '../../../utility/handleFileChange'
-import handleSubmit from '../../../utility/handleSubmit'
+import Body from '../../parts/body'
+import Footer from '../../parts/footer'
 
 export default function Load({setShowPage}) {
-    const[formdata,setFormdata]=useState({});
+    const[formdata,setFormdata]=useState({"file":"load"});
 
     const handleChange=(e)=>{
         console.log(e.target.name)
@@ -36,8 +33,8 @@ export default function Load({setShowPage}) {
                                 <option></option>
                                 <option></option>
                             </select>
-                            <input type='checkbox' /> Factored
-                            <input type='checkbox' /> unfactored
+                            <input type='checkbox' checked /> Factored
+                            <input type='checkbox' checked /> unfactored
                         </div>
                         <button>
                             Difine Moving Load Code
@@ -48,52 +45,52 @@ export default function Load({setShowPage}) {
 
             <div className='load_density transevere-d'>
 
-                <input type='checkbox' /> self Weight
+                <input type='checkbox' checked/> self Weight
 
                 <div className='d-flex gap20 mrb10'>
                     <div>
-                        <input type='checkbox' /> pavement  :
+                        <input type='checkbox' checked/> pavement  :
                     </div>
-                    <InputBox label={'Weight Density'}>
+                    <InputBox label={'Weight Density'} class1={'label'}>
                         <input type='text' className='inp-short inp' name='pavment-WD' value={formdata['pavment-WD'] || ''} onChange={handleChange} /> kN/m^3
                     </InputBox>
-                    <InputBox label={'ThickNess'}>
+                    <InputBox label={'ThickNess'} class1={'label'}>
                         <input type='text' className='inp-short inp' name='pavment-thickness' value={formdata['pavment-thickness'] || ''} onChange={handleChange} /> m
                     </InputBox>
                 </div>
 
                 <div className='d-flex gap20 mrb10'>
-                    <div>
-                        <input type='checkbox' /> Soll  :
+                    <div className='soll-container'>
+                        <input type='checkbox' checked /> Soll  :
                     </div>
                     <div>
                         <div className='d-grid2 mrb10'>
 
                             <div>
-                                <InputBox label={'Weight Density'}>
+                                <InputBox label={'Weight Density'} class1={'label'}>
                                     <input type='text' className='inp-short inp' name='soll-WD' value={formdata['soll-WD'] || ''} onChange={handleChange} /> kN/m^3
                                 </InputBox>
                             </div>
                             <div>
-                                <InputBox label={'Phi'}>
+                                <InputBox label={'Phi'} class1={'label'}>
                                     <input type='text' className='inp-short inp' name='soll-phi' value={formdata['soll-phi'] || ''} onChange={handleChange} /> kN/m^3
                                 </InputBox>
                             </div>
                             <div>
-                                <InputBox label={'Surcharge'}>
+                                <InputBox label={'Surcharge'} class1={'label'}>
                                     <input type='text' className='inp-short inp' name='soll-sucharge' value={formdata['soll-sucharge'] || ''} onChange={handleChange} /> kN/m^3
                                 </InputBox>
                             </div>
                         </div>
                         <div>
                             <div className='mrb10'>
-                                <InputBox label={'Submerged Weight Density'}>
+                                <InputBox label={'Submerged Weight Density'} class1={'label'}>
                                     <input type='text' className='inp-short inp' name='soll-subWD' value={formdata['soll-subWD'] || ''} onChange={handleChange} /> kN/m^3
                                 </InputBox>
                             </div>
                         </div>
                         <div>
-                            <InputBox label={'Load Slope'}>
+                            <InputBox label={'Load Slope'} class1={'label'}>
                                 <span>(L) 1 :</span>
                                 <input type='text' className='inp-short inp' value={'1.5'} disabled />
                                 <span>(R) 1 :</span>
@@ -105,7 +102,7 @@ export default function Load({setShowPage}) {
 
                 <div className='d-flex gap20 mrb10'>
                     <div>
-                        <input type='checkbox' /> Underground Water  :
+                        <input type='checkbox' checked/> Underground Water  :
                     </div>
                     <span>GL -</span>
                     <input type='text' className='inp-short inp' name='GL' value={formdata['GL'] || ''} onChange={handleChange} /> m
@@ -114,12 +111,12 @@ export default function Load({setShowPage}) {
 
                 <div className='d-flex gap20 mrb10'>
                     <div>
-                        <input type='checkbox' /> Barrier  :
+                        <input type='checkbox' checked/> Barrier  :
                     </div>
-                    <InputBox label={'self weight'}>
+                    <InputBox label={'self weight'} class1={'label'}>
                         <input type='text' className='inp-short inp' name='self-weight' value={formdata['self-weight'] || ''} onChange={handleChange}/> kN/m
                     </InputBox>
-                    <InputBox label={'Additional Load'}>
+                    <InputBox label={'Additional Load'} class1={'label'}>
                         <input type='text' className='inp-short inp' name='add-load' value={formdata['add-load'] || ''} onChange={handleChange}/> kN/m
                     </InputBox>
 
@@ -127,7 +124,7 @@ export default function Load({setShowPage}) {
 
                 <div className='d-flex gap20 mrb10'>
                     <div>
-                        <input type='checkbox' /> Median Strip  :
+                        <input type='checkbox' checked/> Median Strip  :
                     </div>
                     <div>
                         <input type='text' className='inp-short inp' name='median-strip' value={formdata['median-strip'] || ''} onChange={handleChange} /> kN/m
@@ -136,12 +133,12 @@ export default function Load({setShowPage}) {
 
                 <div className='d-flex gap20'>
                     <div>
-                        <input type='checkbox' /> SideWalk  :
+                        <input type='checkbox' checked /> SideWalk  :
                     </div>
-                    <InputBox label={'weight Density'}>
+                    <InputBox label={'weight Density'} class1={'label'}>
                         <input type='text' className='inp-short inp' name='sideWalk-wd' value={formdata['sideWalk-wd'] || ''} onChange={handleChange}/> kN/m^3
                     </InputBox>
-                    <InputBox label={'Thickness'}>
+                    <InputBox label={'Thickness'} class1={'label'}>
                         <input type='text' className='inp-short inp' name='sideWalk-thickness' value={formdata['sideWalk-thickness'] || ''} onChange={handleChange} /> m
                     </InputBox>
                     <InputBox label={'Crowd Load'}>
@@ -154,15 +151,18 @@ export default function Load({setShowPage}) {
                 <div>
                     <input type='checkbox' checked disabled /> Live Load  :
                 </div>
-                <InputBox label={'Class of Loading'}>
+                <div className='d-flex-col gap10'>
+                <InputBox label={'Class of Loading'} class1={'label'}>
                     <select value={"H15-44"} disabled>
-                        <option></option>
+                        <option>H15-44</option>
                     </select>
                 </InputBox>
-                <InputBox label={'Eccentricity'}>
-                    <input type='radio' checked disabled/>
-                    <input type='radio' disabled/>
+
+                <InputBox label={'Eccentricity'} class1={'label'}>
+                    <input type='radio' checked disabled/>left
+                    <input type='radio' disabled/>right
                 </InputBox>
+                </div>
             </div>
 
             <div className='d-flex gap20 transevere-d disable'>
@@ -178,7 +178,7 @@ export default function Load({setShowPage}) {
             <div className='transevere-d'>
                 <div className='d-flex gap20 mrb10'>
                     <div>
-                        <input type='checkbox' /> System Temperature  :
+                        <input type='checkbox' checked /> System Temperature  :
                     </div>
                     <InputBox label={'T[+/-]'}>
                         <input type='text' className='inp-short inp' name='system-temp' value={formdata['system-temp'] || ''} onChange={handleChange}/> [T]
@@ -187,7 +187,7 @@ export default function Load({setShowPage}) {
 
                 <div className='d-flex gap20 mrb10'>
                     <div>
-                        <input type='checkbox' /> : Temperature Gradient
+                        <input type='checkbox' checked/> : Temperature Gradient
                     </div>
                     <InputBox label={' Delta T '}>
                         <input type='text' className='inp-short inp' name='delta-t' value={formdata['delta-t'] || ''} onChange={handleChange} /> [T]
@@ -199,10 +199,10 @@ export default function Load({setShowPage}) {
             <div className='d-flex gap20 transevere-d disable'>
                 <div className='d-flex'>
                     <div>
-                        <input type='checkbox' /> Shrinkage Strain  :
+                        <input type='checkbox' checked/> Shrinkage Strain  :
                     </div>
                     <div>
-                        <input type='text' disabled className='inp-short inp'  name='shrink-strain' value={formdata['shrink-strain'] || ''} onChange={handleChange}/>
+                        <input type='text' className='inp-short inp'  name='shrink-strain' value={formdata['shrink-strain'] || '0.00015'} onChange={handleChange}/>
                     </div>
                 </div>
                 <div className='d-flex'>
@@ -210,7 +210,7 @@ export default function Load({setShowPage}) {
                         Thermal Coefficent  :
                     </div>
                     <div>
-                        <input type='text' disabled className='inp-short inp' name='COEP' value={formdata['COEP'] || ''} onChange={handleChange}/> 1/[T]
+                        <input type='text' className='inp-short inp' name='COEP' value={formdata['COEP'] || '1e-05'} onChange={handleChange}/> 1/[T]
                     </div>
                 </div>
 
@@ -236,7 +236,7 @@ export default function Load({setShowPage}) {
             </div>
             </div>
         </Main>
-        <Footer handleFileChange={handleFileChange} handleSubmit={handleSubmit} formData={formdata} setFormData={setFormdata}/>
+        <Footer formData={formdata} setFormData={setFormdata}/>
         
         </Body>
     )
